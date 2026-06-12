@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ExampleClientMixin {
 	@Inject(at = @At("HEAD"), method = "run")
 	private void init(CallbackInfo info) {
-		// This code is injected into the start of Minecraft.run()V
+		// This code is injected into the start of Minecraft.run()
+		System.out.println("Injecting test string to terminal");
 	}
 }

@@ -1,9 +1,11 @@
-# client-side-capes
+# Client Side Capes
 
-## Setup
+This is my first ever attempt at modding Minecraft!
+So far it's been a fun learning experience.
 
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+This is a very simple mod that will eventually allow for the client-side use of custom capes.
+This mod will allow for the application of custom capes to all player characters, even if their account does not have an associated cape.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This template is available under the CC0 license. (I don't really understand licensing yet, but I guess its creative commons, public domain, built from the Fabric Modding Template)
