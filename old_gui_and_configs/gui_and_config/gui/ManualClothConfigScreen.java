@@ -1,6 +1,6 @@
-package com.fourkkelvin.client.gui;
+package com.fourkkelvin.client.gui_and_config.gui;
 
-import com.fourkkelvin.client.config.ModConfig;
+import com.fourkkelvin.client.gui_and_config.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -12,7 +12,7 @@ import net.minecraft.network.chat.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomCapeClothConfigScreen {
+public class ManualClothConfigScreen {
 
     public static Screen create(Screen parent) {
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
@@ -24,7 +24,6 @@ public class CustomCapeClothConfigScreen {
         for (int i = 0; i < 5; i++) {
             SubCategoryBuilder subCategory = MakePlayerEntry(builder, Integer.toString(i));
             general.addEntry(subCategory.build());
-
         }
 
         SubCategoryBuilder subCategory = MakePlayerEntry(builder, "New");
@@ -83,5 +82,4 @@ public class CustomCapeClothConfigScreen {
 
             return subCategory;
         }
-
 }

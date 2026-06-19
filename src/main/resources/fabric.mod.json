@@ -3,7 +3,7 @@
 	"id": "client-side-capes",
 	"version": "0.1.0",
 	"name": "Client Side Capes",
-	"description": "Allows for the client-side application of custom capes to players",
+	"description": "Allows for the client-side application of custom capes to player models",
 	"authors": [
 		"4000Kelvin"
 	],
@@ -18,11 +18,8 @@
 		"main": [
 			"com.fourkkelvin.ClientSideCapes"
 		],
-		"modmenu": [
-			"com.fourkkelvin.client.gui.ModMenuImplementation"
-		],
 		"client": [
-			"com.fourkkelvin.client.ClientSideCapesClient"
+          "com.fourkkelvin.client.ClientSideCapesClientInitializer"
 		]
 	},
 	"mixins": [

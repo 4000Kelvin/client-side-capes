@@ -1,0 +1,9 @@
+{
+  "text.autoconfig.client-side-capes.title": "Custom Cape Configuration",
+  "text.autoconfig.client-side-capes.option.userCategories": "Player Cape Data Dropdown",
+  "text.autoconfig.client-side-capes.option.InnerStuff": "Player Cape Data",
+  "text.autoconfig.client-side-capes.option.InnerStuff.enablecape": "Enable Cape",
+  "text.autoconfig.client-side-capes.option.InnerStuff.name": "Player Name (optional)",
+  "text.autoconfig.client-side-capes.option.InnerStuff.uuid": "Player UUID",
+  "text.autoconfig.client-side-capes.option.InnerStuff.file": "Cape File"
+}
