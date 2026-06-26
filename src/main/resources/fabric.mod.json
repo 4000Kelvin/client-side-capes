@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "client-side-capes",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"name": "Client Side Capes",
 	"description": "Allows for the client-side rendering of custom capes to player models",
 	"authors": [
