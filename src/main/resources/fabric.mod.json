@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "client-side-capes",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"name": "Client Side Capes",
-	"description": "Allows for the client-side application of custom capes to player models",
+	"description": "Allows for the client-side rendering of custom capes to player models",
 	"authors": [
 		"4000Kelvin"
 	],
@@ -30,8 +30,8 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.19.3",
-		"minecraft": "~26.1.2",
+		"fabricloader": ">=0.19.2",
+		"minecraft": ">=26.1.2",
 		"java": ">=25",
 		"fabric-api": "*"
 	}

@@ -56,10 +56,10 @@ public class CustomCapeRegistry {
 
                         // Cache the record into our active map directory index
                         UUID_CAPE_MAP.put(playerUuid, standardRecordAsset);
-                        System.out.println("[Mod] Successfully loaded dynamic cape record for UUID: " + playerUuid);
+                        System.out.println("[ClientSideCapes] Successfully loaded dynamic cape record for UUID: " + playerUuid);
 
                     } catch (IllegalArgumentException e) {
-                        System.out.println("[Mod] Skipped non-UUID string file format: " + file.getName());
+                        System.out.println("[CLientSideCapes] Skipped non-UUID string file format: " + file.getName());
                     }
                 }
             }
