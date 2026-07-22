@@ -15,7 +15,10 @@ public class ClientSideCapesClientInitializer implements ClientModInitializer {
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
 			client.execute(() -> {
 				System.out.println("[ClientSideCapes] World loaded. Initiating custom cape asset stream...");
+				assert client.player != null;
+				System.out.println(client.player.getStringUUID());
 				CustomCapeRegistry.scanAndRegisterCapes();
+				ToggleCommand.register();
 			});
 
 		});

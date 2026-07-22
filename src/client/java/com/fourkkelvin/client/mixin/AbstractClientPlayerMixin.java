@@ -1,9 +1,9 @@
 package com.fourkkelvin.client.mixin;
 
 import com.fourkkelvin.client.CustomCapeRegistry;
+import com.fourkkelvin.client.ToggleCommand;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.ClientAsset;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.PlayerSkin;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.resources.Identifier;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -33,13 +32,18 @@ public class AbstractClientPlayerMixin {
     private static final ClientAsset.ResourceTexture CUSTOM_CAPE_ASSET =
             new ClientAsset.ResourceTexture(CAPE_ID, CAPE_PATH);
 
-
-
     @Inject(method = "getSkin", at = @At("RETURN"), cancellable = true)
     private void injectCustomCape(CallbackInfoReturnable<PlayerSkin> cir) {
         PlayerSkin originalTextures = cir.getReturnValue();
 
         if (originalTextures == null) return;
+
+        // Interesting lesson learned here. The Cape and player rendering is (of course) a constant stream occurring all the time in game.
+        // So all we need is a simple conditional to our Toggle boolean to toggle the mod on/off such that, on the next available tick?, we update the player models. Neat, we don't even need to connect our command logic.
+        if (!ToggleCommand.isModEnabled) {
+            return;
+        }
+
         AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
         UUID playerUuid = player.getUUID();
 
@@ -48,6 +52,7 @@ public class AbstractClientPlayerMixin {
 
         // Overlay the cape leave all other skin elements unchanged
         if (matchedCape != null) {
+            // Eventually add a conditional here to check if the player wants this account's cape enabled
             PlayerSkin.Patch capePatch = new PlayerSkin.Patch(
                     Optional.empty(),                    // Body skin layer
                     Optional.of(matchedCape),            // cape goes here
