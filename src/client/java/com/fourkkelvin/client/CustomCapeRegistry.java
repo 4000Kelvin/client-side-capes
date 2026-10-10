@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CustomCapeRegistry {
 
@@ -20,12 +21,10 @@ public class CustomCapeRegistry {
             File gameDir = Minecraft.getInstance().gameDirectory;
             File capesFolder = new File(gameDir, "custom_capes");
 
-            if (!capesFolder.exists()) {
-                capesFolder.mkdirs();
-            }
-
             File[] files = capesFolder.listFiles();
-            if (files == null) return;
+            if (files == null || files.length == 0) {
+                return;
+            }
 
             for (File file : files) {
                 if (file.isFile() && file.getName().endsWith(".png")) {
@@ -34,7 +33,7 @@ public class CustomCapeRegistry {
                     try {
                         // This is where we get into territory that I really don't understand at this time. But Google AI says we apparently need to do all this in order to properly find and load the cape file into memory for a given UUID
                         // I've dealt with learning how to convert various image formats between "in storage" vs "in use/memory" formats in another project, and it was a pain in the ass.
-                        // So I'm letting AI help here. In short, we are converting to image formats that java/minecraft can understand at runtime??
+                        // So I'm letting AI help here. In short, we are converting to in-memory image formats that java/minecraft can understand at runtime
 
                         UUID playerUuid = UUID.fromString(fileName);
 
@@ -59,7 +58,7 @@ public class CustomCapeRegistry {
                         System.out.println("[ClientSideCapes] Successfully loaded dynamic cape record for UUID: " + playerUuid);
 
                     } catch (IllegalArgumentException e) {
-                        System.out.println("[CLientSideCapes] Skipped non-UUID string file format: " + file.getName());
+                        System.out.println("[ClientSideCapes] Skipped non-UUID string file format: " + file.getName());
                     }
                 }
             }
